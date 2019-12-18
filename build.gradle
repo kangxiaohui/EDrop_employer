@@ -19,6 +19,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        /*反馈的picture*/
+        maven { url 'https://jitpack.io' }
     }
 }
 
