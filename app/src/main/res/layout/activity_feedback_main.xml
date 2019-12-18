@@ -7,8 +7,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:background="#32BA88" />
+        android:layout_height="25dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -74,6 +73,78 @@
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="332px"
+        android:layout_marginTop="20dp"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <io.github.rockerhieu.emojicon.EmojiconEditText
+            android:id="@+id/et_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:hint="说说你的问题"
+            android:lineSpacingExtra="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:textColor="#282828"
+            android:textCursorDrawable="@null"
+            android:textSize="40px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rl_feedback_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:overScrollMode="never" />
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/re_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:layout_marginBottom="20dp"
+        android:background="#fff">
+
+        <ImageView
+            android:id="@+id/im_feedback_smile"
+            android:layout_width="130px"
+            android:layout_height="130px"
+            android:layout_marginLeft="30dp"
+            android:onClick="onClick"
+            android:src="@drawable/smile" />
+
+
+        <Button
+            android:id="@+id/btn_feedback"
+            android:layout_width="204px"
+            android:layout_height="100px"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/feedback_radius"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="提交"
+            android:textColor="#fff" />
+
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,7 +152,6 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="126px"
             android:orientation="horizontal">
@@ -104,7 +174,7 @@
                 android:layout_marginTop="13dp"
                 android:layout_weight="4"
                 android:background="@null"
-                android:hint="请填写"
+                android:hint="选填"
                 android:textColor="#585858"
                 android:textCursorDrawable="@null"
                 android:textSize="40px" />
@@ -140,74 +210,13 @@
                 android:layout_marginTop="13dp"
                 android:layout_weight="4"
                 android:background="@null"
-                android:hint="请填写"
+                android:hint="选填"
                 android:textColor="#585858"
                 android:textCursorDrawable="@null"
                 android:textSize="40px" />
 
         </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="332px"
-        android:layout_marginTop="20dp"
-        android:background="#fff"
-        android:orientation="vertical">
-
-        <io.github.rockerhieu.emojicon.EmojiconEditText
-            android:id="@+id/et_feedback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:hint="说说你的问题"
-            android:lineSpacingExtra="5dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:textColor="#282828"
-            android:textCursorDrawable="@null"
-            android:textSize="40px" />
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/re_feedback"
-        android:layout_width="match_parent"
-        android:layout_height="130px"
-        android:layout_marginBottom="20dp"
-        android:background="#fff">
-
-        <ImageView
-            android:id="@+id/im_feedback_smile"
-            android:layout_width="130px"
-            android:layout_height="130px"
-            android:layout_marginLeft="20dp"
-            android:onClick="onClick"
-            android:src="@drawable/smile" />
-
-        <ImageView
-            android:id="@+id/im_feedback_index"
-            android:layout_width="130px"
-            android:layout_height="130px"
-            android:layout_marginLeft="60dp"
-            android:onClick="onClick"
-            android:src="@drawable/image_feedback" />
-
-        <Button
-            android:id="@+id/btn_feedback"
-            android:layout_width="204px"
-            android:layout_height="100px"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/feedback_radius"
-            android:gravity="center"
-            android:onClick="onClick"
-            android:text="提交"
-            android:textColor="#fff" />
-
-    </RelativeLayout>
-
 
 
     <FrameLayout

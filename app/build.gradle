@@ -25,6 +25,10 @@ android {
             jniLibs.srcDir 'libs'
         }
     }
+    //处理所有报META-INF/*'的错误
+    packagingOptions {
+        pickFirst 'META-INF/*'
+    }
 }
 buildscript {
     repositories {
@@ -95,4 +99,6 @@ dependencies {
     implementation files('libs/jcore-android-2.1.6.jar')
     implementation files('libs/jpush-android-3.3.9.jar')
     implementation files('libs/BaiduLBS_Android.jar')
+    /*picture的依赖*/
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
 }
