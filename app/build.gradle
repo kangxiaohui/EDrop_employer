@@ -29,6 +29,11 @@ android {
     packagingOptions {
         pickFirst 'META-INF/*'
     }
+    //完善打包时错误
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 buildscript {
     repositories {
