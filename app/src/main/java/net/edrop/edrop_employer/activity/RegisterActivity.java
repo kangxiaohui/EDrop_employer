@@ -95,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 .add("password", etPsd.getText().toString())
                                 .build();
                         Request request = new Request.Builder()
-                                .url(Constant.BASE_URL + "registerByUserName")
+                                .url(Constant.BASE_URL + "registerEmployeeByUserName")
                                 .post(formBody)
                                 .build();
                         Call call = okHttpClient.newCall(request);
