@@ -5,14 +5,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import net.edrop.edrop_employer.R;
 import net.edrop.edrop_employer.utils.ShareAppToOther;
 import net.edrop.edrop_employer.utils.SystemTransUtil;
 
 import static com.mob.MobSDK.getContext;
-import static net.edrop.edrop_employer.activity.MainMenuLeftFragment.drawableToBitmap;
+import static net.edrop.edrop_employer.fragment.MainMenuLeftFragment.drawableToBitmap;
 
 /**
  * Created by 李诗凡.

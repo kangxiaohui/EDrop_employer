@@ -1,39 +1,30 @@
 package net.edrop.edrop_employer.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.app.Activity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import net.edrop.edrop_employer.R;
 import net.edrop.edrop_employer.adapter.RecognitionAdapter;
-import net.edrop.edrop_employer.adapter.ServiceAdapter;
 import net.edrop.edrop_employer.entity.NewsList;
-import net.edrop.edrop_employer.entity.Recognition;
-import net.edrop.edrop_employer.entity.RecognitionResult;
 import net.edrop.edrop_employer.utils.SystemTransUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class RecognitionResultActivity extends Activity {
     private ImageView imgPhoto;

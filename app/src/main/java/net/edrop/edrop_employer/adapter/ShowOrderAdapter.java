@@ -1,7 +1,6 @@
 package net.edrop.edrop_employer.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.edrop.edrop_employer.R;
-import net.edrop.edrop_employer.entity.NewsList;
 import net.edrop.edrop_employer.entity.Order;
 
 import java.sql.Timestamp;

@@ -2,12 +2,12 @@ package net.edrop.edrop_employer.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -23,11 +23,17 @@ import com.nineoldandroids.view.ViewHelper;
 
 import net.edrop.edrop_employer.R;
 import net.edrop.edrop_employer.adapter.FragmentIndexAdapter;
+import net.edrop.edrop_employer.fragment.HomePageFragment;
+import net.edrop.edrop_employer.fragment.MainMenuLeftFragment;
+import net.edrop.edrop_employer.fragment.MsgPageFragment;
 import net.edrop.edrop_employer.utils.MyViewPager;
 import net.edrop.edrop_employer.utils.SharedPreferencesUtils;
 import net.edrop.edrop_employer.utils.SystemTransUtil;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import xyz.bboylin.universialtoast.UniversalToast;
 
 public class Main2Activity extends AppCompatActivity {
     //自定义tabhost属性
@@ -49,7 +55,7 @@ public class Main2Activity extends AppCompatActivity {
 
     private ImageView nav_userImg;
     private DrawerLayout mDrawerLayout;
-    private net.edrop.edrop_employer.activity.MainMenuLeftFragment leftMenuFragment;
+    private MainMenuLeftFragment leftMenuFragment;
     private ImageView imgSweep;
     private long waitTime = 2000;
     private long touchTime = 0;
@@ -94,7 +100,7 @@ public class Main2Activity extends AppCompatActivity {
 
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Toast.makeText(Main2Activity.this,"您不完善信息，后续工作将无法进行",Toast.LENGTH_SHORT).show();
+                    UniversalToast.makeText(Main2Activity.this,"您不完善信息，后续工作将无法进行",Toast.LENGTH_SHORT).showWarning();
                 }
             });
             AlertDialog alertDialog = adBuilder.create();// 通过构造器创建AlertDialog
@@ -122,7 +128,7 @@ public class Main2Activity extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.id_drawerLayout);
         //关闭手势滑动：DrawerLayout.LOCK_MODE_LOCKED_CLOSED（Gravity.LEFT：代表左侧的）
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.LEFT);
-        leftMenuFragment = (net.edrop.edrop_employer.activity.MainMenuLeftFragment) getSupportFragmentManager()
+        leftMenuFragment = (MainMenuLeftFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.fragment_leftmenu);
         imgSweep = findViewById(R.id.top_sweep);
     }
@@ -131,7 +137,7 @@ public class Main2Activity extends AppCompatActivity {
         mFragments = new ArrayList<Fragment>();
         mFragments.add(HomePageFragment.newInstance("主页"));
         mFragments.add(net.edrop.edrop_employer.activity.ServicePageFragment.newInstance("接单"));
-        mFragments.add(net.edrop.edrop_employer.activity.MsgPageFragment.newInstance("消息"));
+        mFragments.add(MsgPageFragment.newInstance("消息"));
         mFragments.add(NavigatePageFragment.newInstance("导航"));
         initIndexFragmentAdapter();
     }

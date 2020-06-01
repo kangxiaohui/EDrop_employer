@@ -2,6 +2,7 @@ package net.edrop.edrop_employer.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,10 +13,15 @@ import android.widget.Toast;
 
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
+import com.zyao89.view.zloading.ZLoadingDialog;
+import com.zyao89.view.zloading.Z_TYPE;
 
 import net.edrop.edrop_employer.R;
+import net.edrop.edrop_employer.model.Model;
 import net.edrop.edrop_employer.utils.SharedPreferencesUtils;
 import net.edrop.edrop_employer.utils.SystemTransUtil;
+
+import xyz.bboylin.universialtoast.UniversalToast;
 
 /**
  * Created by 李诗凡.
@@ -70,6 +76,50 @@ public class SettingActivity extends AppCompatActivity {
         button.setOnClickListener(new MyListener());
     }
 
+    public void getLoginExit() {
+        Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                EMClient.getInstance().logout(true, new EMCallBack() {
+
+                    @Override
+                    public void onSuccess() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //关闭DBHelper
+                                Model.getInstance().getDBManager().close();
+                                UniversalToast.makeText(SettingActivity.this, "注销成功", UniversalToast.LENGTH_SHORT,
+                                        UniversalToast.EMPHASIZE).showSuccess();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onProgress(int progress, String status) {
+                        ZLoadingDialog dialog = new ZLoadingDialog(SettingActivity.this);
+                        dialog.setLoadingBuilder(Z_TYPE.DOUBLE_CIRCLE)//设置类型
+                                .setLoadingColor(Color.parseColor("#00FF7F"))
+                                .setHintText("注销中，请稍后...")
+                                .setHintTextColor(Color.GRAY)
+                                .setDialogBackgroundColor(Color.parseColor("#cc111111"))
+                                .show();
+                    }
+
+                    @Override
+                    public void onError(int code, String message) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                UniversalToast.makeText(SettingActivity.this,"注销失败",Toast.LENGTH_SHORT).showError();
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    }
+
     /**
      * Created: sifannnn
      * TODO：设置监听处理方法
@@ -91,7 +141,7 @@ public class SettingActivity extends AppCompatActivity {
 //                    intent = new Intent(SettingActivity.this, VersionActivity.class);
 //                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //                    startActivity(intent);
-                    Toast.makeText(SettingActivity.this, "已是最新版本", Toast.LENGTH_SHORT).show();
+                    UniversalToast.makeText(SettingActivity.this, "已是最新版本", Toast.LENGTH_SHORT).showSuccess();
                     break;
                 case R.id.rl_setting_feedback://反馈消息
                     intent = new Intent(SettingActivity.this, FeedBackActivity.class);
@@ -118,31 +168,5 @@ public class SettingActivity extends AppCompatActivity {
                     break;
             }
         }
-    }
-
-    /**
-     * 退出环信登录
-     */
-    private void getLoginExit() {
-        EMClient.getInstance().logout(true, new EMCallBack() {
-
-            @Override
-            public void onSuccess() {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void onProgress(int progress, String status) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void onError(int code, String message) {
-                // TODO Auto-generated method stub
-
-            }
-        });
     }
 }

@@ -4,17 +4,15 @@
     package="net.edrop.edrop_employer">
 
     <!--极光推送-->
-    <!-- Required -->
-    <!-- 自定义定义一个权限 -->
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
     <!-- Required  一些系统要求的权限，如访问网络等 -->
     <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
-
-    <!-- 手机存储 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<!-- 悬浮窗权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -27,20 +25,12 @@
     <!-- 打电话权限 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- 环信所需权限 -->
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <!-- Required -->
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission
-        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
-        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
@@ -68,6 +58,9 @@
         <activity android:name=".activity.AboutEDropActivity" />
         <activity android:name=".activity.FillPersonalInforActivity" />
         <activity android:name=".activity.SearchRubblishActivity" />
+        <activity android:name=".activity.FriendAddActivity" />
+        <activity android:name=".activity.FriendListActivity" />
+        <activity android:name=".activity.InviteActivity" />
         <activity
             android:name=".activity.IntroductionEDropActivity"
             android:theme="@style/Anim_translate" />
@@ -86,6 +79,7 @@
             android:name=".activity.RubbishDesc04Activity"
             android:theme="@style/Anim_translate" />
         <activity android:name=".activity.PersonalCenterManagerActivity" />
+        <activity android:name=".activity.LoadingActivity" />
         <activity
             android:name=".activity.RegisterActivity"
             android:label="@string/title_activity_register" />
@@ -93,8 +87,12 @@
         <activity
             android:name=".activity.RecognitionResultActivity"
             android:label="@string/title_activity_recognition_result" />
-        <activity android:name=".activity.ChatViewActivity" />
-        <activity android:name=".activity.LoadingActivity" />
+        <activity
+            android:name=".activity.ChatViewActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activity.FeedBackActivity" />
         <activity android:name=".activity.FeedBackOption" />
         <activity android:name=".activity.ImmediateAppointmentActivity" />
@@ -126,6 +124,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!-- QQ登录配置 end -->
 
+        <!-- 环信集成开始 -->
         <!-- 设置环信应用的AppKey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
@@ -138,7 +137,26 @@
             android:name="com.hyphenate.chat.EMJobService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
-        <!-- 声明SDK所需的receiver开始 -->
+        <!-- 地图 -->
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide" />
+        <!-- 定位 -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="0UvmoZkOxUIFFYji3sXg39XjjLj4GeGf" />
+        <!-- 点击查看大图崩溃 -->
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide" />
+        <!-- 声明SDK所需的receiver -->
         <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
@@ -151,20 +169,11 @@
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
-        <!-- 声明SDK所需的receiver结束 -->
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="net.edrop.edrop_employer.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
 
-        <activity android:name=".activity.ForgetPsdActivity" />
-        <activity android:name=".activity.MyMoneyActivity" />
-
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+        <!-- 环信集成结束 -->
 
         <!--极光推送-->
         <!-- Required SDK核心功能 -->

@@ -11,7 +11,6 @@ import android.widget.TextView;
 import net.edrop.edrop_employer.R;
 import net.edrop.edrop_employer.entity.Competition;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CustomAdapter extends BaseAdapter {

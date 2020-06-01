@@ -1,6 +1,5 @@
 package net.edrop.edrop_employer.activity;
 
-import android.content.BroadcastReceiver;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -27,7 +25,6 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import net.edrop.edrop_employer.R;
 import net.edrop.edrop_employer.adapter.AcceptOrderAdapter;
 import net.edrop.edrop_employer.adapter.DoneOrderAdapter;
-import net.edrop.edrop_employer.adapter.MyPagerAdapter;
 import net.edrop.edrop_employer.adapter.WaitOrderAdapter;
 import net.edrop.edrop_employer.entity.Order;
 import net.edrop.edrop_employer.utils.Constant;

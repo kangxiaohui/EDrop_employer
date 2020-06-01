@@ -1,7 +1,6 @@
 package net.edrop.edrop_employer.jpush;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import org.greenrobot.eventbus.EventBus;

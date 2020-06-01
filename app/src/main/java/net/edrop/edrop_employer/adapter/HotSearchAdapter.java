@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import net.edrop.edrop_employer.R;
 import net.edrop.edrop_employer.entity.HotItem;

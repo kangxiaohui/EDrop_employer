@@ -3,19 +3,13 @@ package net.edrop.edrop_employer;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.os.Process;
-import android.support.annotation.NonNull;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+
+import net.edrop.edrop_employer.model.Model;
 
 import java.util.Iterator;
 import java.util.List;
@@ -24,6 +18,7 @@ import cn.jpush.android.api.JPushInterface;
 
 public class MyApplication extends Application {
     private static Application instance2;
+    private static Context mContext;
 
     @Override
     public void onCreate() {
@@ -34,17 +29,14 @@ public class MyApplication extends Application {
 
         instance2 = this;
         Fresco.initialize(this);
-        //环信
+        //初始化环信easeui
         EMOptions options = new EMOptions();
-        options.setAcceptInvitationAlways(false);
-        int pid = Process.myPid();
-        String processAppName = getAppName(pid);
-        if (processAppName == null || !processAppName.equalsIgnoreCase(getPackageName())) {
-            // 则此application::onCreate 是被service 调用的，直接返回
-            return;
-        }
+        options.setAcceptInvitationAlways(false);//设置需要同意后才能接受邀请
         EMClient.getInstance().init(this, options);
-        EMClient.getInstance().setDebugMode(true);
+        //初始化数据模型层类
+        Model.getInstance().init(this);
+        //初始化全局上下文
+        mContext = this;
 
     }
 
@@ -70,5 +62,11 @@ public class MyApplication extends Application {
             }
         }
         return processName;
+    }
+
+
+    //获取全局上下文对象
+    public static Context getGlobalApplication(){
+        return mContext;
     }
 }

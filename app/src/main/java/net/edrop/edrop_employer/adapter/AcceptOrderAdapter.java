@@ -16,7 +16,6 @@ import com.google.gson.reflect.TypeToken;
 
 import net.edrop.edrop_employer.R;
 import net.edrop.edrop_employer.entity.Order;
-import net.edrop.edrop_employer.entity.Order;
 import net.edrop.edrop_employer.utils.Constant;
 import net.edrop.edrop_employer.utils.SharedPreferencesUtils;
 

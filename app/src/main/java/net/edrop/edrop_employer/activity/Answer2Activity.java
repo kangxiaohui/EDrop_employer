@@ -1,8 +1,8 @@
 package net.edrop.edrop_employer.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,8 +19,6 @@ import net.edrop.edrop_employer.utils.SystemTransUtil;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import okhttp3.MediaType;
 
 public class Answer2Activity extends AppCompatActivity {
     private List<Competition> lists = new ArrayList<>();

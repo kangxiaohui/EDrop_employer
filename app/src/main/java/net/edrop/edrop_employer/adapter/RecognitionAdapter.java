@@ -2,7 +2,6 @@ package net.edrop.edrop_employer.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import net.edrop.edrop_employer.R;
 import net.edrop.edrop_employer.entity.NewsList;

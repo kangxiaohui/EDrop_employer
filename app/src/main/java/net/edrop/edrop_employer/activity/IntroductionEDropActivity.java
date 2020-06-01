@@ -1,8 +1,6 @@
 package net.edrop.edrop_employer.activity;
 
 import android.graphics.Color;
-
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -10,9 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
-import android.view.Window;
-import android.widget.SimpleAdapter;
 
 import net.edrop.edrop_employer.R;
 import net.edrop.edrop_employer.adapter.SimpleIntroduceAdapter;

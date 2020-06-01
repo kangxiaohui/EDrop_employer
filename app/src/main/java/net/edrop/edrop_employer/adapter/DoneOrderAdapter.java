@@ -1,35 +1,21 @@
 package net.edrop.edrop_employer.adapter;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import net.edrop.edrop_employer.R;
 import net.edrop.edrop_employer.entity.Order;
-import net.edrop.edrop_employer.utils.Constant;
 import net.edrop.edrop_employer.utils.SharedPreferencesUtils;
 
-import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 /**
  * Created by Android Studio.

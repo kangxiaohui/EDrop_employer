@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -201,7 +200,7 @@
         <!-- android:tag="LEFT"用于java代码中通过drawerView.getTag()判断左侧还是右侧 -->
         <fragment
             android:id="@+id/fragment_leftmenu"
-            android:name="net.edrop.edrop_employer.activity.MainMenuLeftFragment"
+            android:name="net.edrop.edrop_employer.fragment.MainMenuLeftFragment"
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_gravity="left"

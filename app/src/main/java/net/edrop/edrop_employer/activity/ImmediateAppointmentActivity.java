@@ -1,11 +1,11 @@
 package net.edrop.edrop_employer.activity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
